@@ -1,0 +1,594 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   TELA DO DESAFIO
+===================================================== */
+
+#telaDesafio {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at 10% 20%, #ffe600, transparent 25%),
+        radial-gradient(circle at 90% 80%, #ff3cac, transparent 30%),
+        linear-gradient(135deg, #5427d8, #087cff);
+}
+
+
+/* =====================================================
+   PAINEL
+===================================================== */
+
+.painel {
+    width: 100%;
+    max-width: 900px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.3);
+
+    animation: entrada 0.8s ease;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.cadeado {
+    font-size: 65px;
+
+    animation:
+        flutuar 2s infinite ease-in-out;
+}
+
+h1 {
+    margin-top: 15px;
+
+    color: #5427d8;
+
+    font-size: 38px;
+
+    line-height: 1.1;
+}
+
+.instrucao {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    color: #444;
+}
+
+
+/* =====================================================
+   CAMPO DE DIGITAÇÃO
+===================================================== */
+
+.campo-container {
+    position: relative;
+
+    width: 100%;
+
+    height: 220px;
+
+    margin-top: 35px;
+
+    border: 5px solid #5427d8;
+
+    border-radius: 20px;
+
+    background: #f8f8ff;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 0 4px rgba(84, 39, 216, 0.08),
+        0 8px 25px rgba(84, 39, 216, 0.20);
+
+    transition: 0.3s;
+}
+
+
+/* =====================================================
+   CAMPO CONTENTEDITABLE
+===================================================== */
+
+#resposta {
+    width: 100%;
+
+    height: 100%;
+
+    padding: 20px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    text-align: left;
+
+    color: #087cff;
+
+    overflow-y: auto;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: break-word;
+
+    word-break: normal;
+
+    cursor: text;
+}
+
+
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
+
+#resposta:empty::before {
+    content: attr(data-placeholder);
+
+    color: #888;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CARACTERES CORRETOS
+===================================================== */
+
+.caractere-correto {
+    color: #087cff;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   CARACTERES ERRADOS
+===================================================== */
+
+.caractere-errado {
+    color: #ed2024;
+
+    font-weight: bold;
+
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+#feedback {
+    min-height: 30px;
+
+    margin-top: 12px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+.feedback-erro {
+    color: #ed2024;
+}
+
+.feedback-certo {
+    color: #087cff;
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+#botaoDescobrir {
+    margin-top: 20px;
+
+    padding: 18px 45px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3cac,
+            #ffcc00
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+
+    transition: 0.25s;
+}
+
+#botaoDescobrir:hover {
+    transform: scale(1.06);
+}
+
+#botaoDescobrir:active {
+    transform: scale(0.96);
+}
+
+#botaoDescobrir:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   TELA DO MAPA
+===================================================== */
+
+#telaMapa {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ffe9a8,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #ff8a00,
+            #ff3c81,
+            #7038ff
+        );
+
+    animation: aparecer 1s ease;
+}
+
+
+/* =====================================================
+   ESCONDER
+===================================================== */
+
+.escondida {
+    display: none !important;
+}
+
+
+/* =====================================================
+   PARABÉNS
+===================================================== */
+
+.parabens {
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 30px;
+
+    animation: aparecer 1s ease;
+}
+
+.confetes {
+    font-size: 30px;
+
+    animation:
+        flutuar 1.5s infinite;
+}
+
+.parabens h2 {
+    font-size: 50px;
+
+    margin-top: 5px;
+
+    text-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.parabens p {
+    margin-top: 8px;
+
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   MAPA
+===================================================== */
+
+.mapa-area {
+    width: min(90vw, 950px);
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.mapa {
+    position: relative;
+
+    width: 0;
+
+    height: 520px;
+
+    display: flex;
+
+    justify-content: center;
+
+    animation:
+        abrirMapa 3s ease forwards;
+
+    animation-delay: 0.7s;
+}
+
+.pergaminho {
+    width: 850px;
+
+    max-width: 85vw;
+
+    height: 500px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #f5d995,
+            #d6a653
+        );
+
+    border: 8px solid #70451e;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.conteudo-mapa {
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+}
+
+.conteudo-mapa h3 {
+    font-size: 30px;
+
+    color: #5a3516;
+
+    margin-bottom: 20px;
+}
+
+.foto-destino {
+    width: 70%;
+
+    height: 280px;
+
+    border: 7px solid #70451e;
+
+    background: #e9c77d;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.foto-destino img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.conteudo-mapa h4 {
+    margin-top: 20px;
+
+    font-size: 32px;
+
+    color: #542f12;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   ROLOS DO MAPA
+===================================================== */
+
+.rolo {
+    position: absolute;
+
+    top: -20px;
+
+    width: 65px;
+
+    height: 540px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #613714,
+            #d89a4a,
+            #704019
+        );
+
+    box-shadow:
+        5px 8px 15px rgba(0, 0, 0, 0.3);
+
+    z-index: 5;
+}
+
+.rolo-esquerdo {
+    left: -32px;
+}
+
+.rolo-direito {
+    right: -32px;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes entrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+@keyframes abrirMapa {
+
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 850px;
+    }
+}
+
+
+/* =====================================================
+   CELULAR / TELA PEQUENA
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .painel {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .instrucao {
+        font-size: 17px;
+    }
+
+    #resposta {
+        font-size: 18px;
+    }
+
+    .parabens h2 {
+        font-size: 38px;
+    }
+
+    .parabens p {
+        font-size: 18px;
+    }
+
+    .foto-destino {
+        width: 80%;
+
+        height: 220px;
+    }
+}

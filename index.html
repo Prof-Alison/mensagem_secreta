@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mensagem Secreta</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         TELA DO DESAFIO
+    ========================== -->
+
+    <main id="telaDesafio">
+
+        <div class="painel">
+
+            <div class="cadeado">🔐</div>
+
+            <h1>DESAFIO DA<br> MENSAGEM SECRETA</h1>
+
+            <p class="instrucao">
+                Descubra a frase e digite a mensagem para encontrar o próximo destino!
+            </p>
+
+
+            <!-- ÁREA DE DIGITAÇÃO -->
+
+                            <div class="campo-container">
+                    <div
+                        id="resposta"
+                        contenteditable="true"
+                        spellcheck="false"
+                        data-placeholder="Digite aqui a mensagem..."
+                    ></div>
+                </div>
+
+
+            <div id="feedback"></div>
+
+
+            <button id="botaoDescobrir">
+                🔎 DESCOBRIR
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DO MAPA
+    ========================== -->
+
+    <main id="telaMapa" class="escondida">
+
+        <div class="parabens">
+
+            <div class="confetes">
+                ✨ ⭐ 🎉 ⭐ ✨
+            </div>
+
+            <h2>PARABÉNS!</h2>
+
+            <p>VOCÊ DESCOBRIU A MENSAGEM!</p>
+
+        </div>
+
+
+        <div class="mapa-area">
+
+            <div class="mapa">
+
+                <div class="rolo rolo-esquerdo"></div>
+
+                <div class="pergaminho">
+
+                    <div class="conteudo-mapa">
+
+                        <h3>🧭 PRÓXIMO DESTINO</h3>
+
+                        <div class="foto-destino">
+
+                            <img
+                                src="posicao_final.png"
+                                alt="Imagem do próximo destino"
+                            >
+
+                        </div>
+
+                        <h4>INTERIOR DA SALA 07</h4>
+
+                    </div>
+
+                </div>
+
+                <div class="rolo rolo-direito"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
